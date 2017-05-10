@@ -1,0 +1,344 @@
+.active{
+	border-bottom: solid;
+	color: #0074E4; 
+}
+
+.navbar .nav>li>a{
+	color: black;
+	font-weight: 600;
+}
+
+.navbar .nav>li>a:hover{
+	color: #0074E4;
+	background-color: white;
+	font-weight: 600;
+}
+
+.navbar {
+   background-color: #ffffff;
+   background: #ffffff;
+   border-style: solid;
+   border-color: #black;
+   -webkit-box-shadow: 0 8px 6px -6px #999;
+   -moz-box-shadow: 0 8px 6px -6px #999;
+   box-shadow: 0 8px 6px -6px #999;
+}
+.icon-bar{
+	background-color: #9b59b6;
+
+} 
+.menu-prl{
+	padding-left: 110px;
+	padding-right: 80px;
+}
+
+.white-bg{
+	background-color: white;
+	padding: 20px;
+}
+
+/*Footer*/
+.footer{
+	min-height: 300px;
+	background-color: #34495e;
+	margin-top: 50px
+	color: white;
+}
+
+.copyright{
+	background-color: #273747;
+	font-size: 14px;
+}
+
+.copyright-info{
+	margin: 20px;
+
+}
+
+.footer-img{
+	height: 83px;
+	width: 125px;
+	float: left;
+	margin-right: 15px;
+}
+
+.footer-popular{
+	margin-top: 12px;
+}
+
+.footer-popular-info{
+	margin-left: 1px;
+}
+.footer-post-title{
+	font-weight: bold;	
+}
+
+.container-spacer{
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
+
+/* spacong */
+
+.lg-spacer{
+	margin-top: 80px;
+}
+
+.spacer{
+	margin-top: 60px;
+}
+
+.pt-spacer{
+	padding: 20px;
+}
+ 
+ .sm-spacer{
+	margin: 20px;
+}
+
+.sm-top-spacer{
+	margin-top: 20px;
+}
+
+.sm-bottom-spacer{
+	margin-bottom: 20px;
+}
+.spacer-bottom{
+	margin-bottom: 45px;
+}
+
+.list-group-item{
+	background-color: #222222;
+	border-color: #222222;
+	color: silver;
+}
+
+.txt-clr{
+	color: #fff;
+}
+
+.blue-form{
+	background-color: #00BFFF;
+	margin-bottom: 30px;
+}
+.avatar{
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	background-color: #eee;
+	float: left;
+}
+
+.profile-avatar{
+	width: 121px;
+	height: 121px;
+	float: left;
+	border-radius: 50%;
+	margin-right: 25px;
+}
+
+.avatar-small{
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	position: absolute;
+	top: 10px;
+	right: 0;
+	z-index: 1000;
+}
+
+
+.author-name{
+	float: left;
+	margin-left: 15px;
+	line-height: 0em;
+}
+
+.author-avatar{
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	background-color: #eee;
+}
+
+.comment-time{
+	color: #aaa;
+	font-style: italic;
+}
+
+.comment-content{
+	clear: both;
+	margin-left: 95px;
+	font-size: 15px;
+}
+.comment {
+    min-height: 20px;
+    padding: 19px;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+.badger{
+	font-size: 25px;
+}
+.badge-size{
+	font-size: 17px;
+	margin-left: 30px;
+}
+
+.fa-size{
+	font-size: 20px;
+}
+
+/*buttons*/
+.btn-purple{
+	background-color: #9b59b6;
+	color: #fff;	
+}
+
+.btn-purple:hover{
+	background-color: transparent;
+	border-style: solid;
+	border-color: #9b59b6;
+	color: #fff;
+}
+
+.btn-purple-purple{
+	background-color: #9b59b6;
+	color: #fff;	
+}
+
+.btn-purple-purple:hover{
+	background-color: transparent;
+	border-style: solid;
+	border-color: #9b59b6;
+	color: #9b59b6;
+}
+
+
+
+/*Homepage*/
+.popular-post-img{
+	height: 193px;
+	width: 344px;
+}
+
+.popular-posts{
+	padding-top: 20px;
+	min-height: 330px;
+	max-height: 330px; 
+}
+
+.find-out{
+	padding-top: 85px;
+	background-color: #f3f3f3;
+	min-height: 350px;
+	
+}
+
+.category{
+	color: #aaa;
+	letter-spacing: 0px;
+}
+
+div.cats{
+	padding: 20px;
+}
+
+.cat-info{
+	display: inline;
+	line-height: 2em;
+}
+
+.badge{
+	background-color: #9b59b6; 
+}
+
+.newsletter{
+	background: #34495e;
+	color: #ffffff;
+	border: none;
+	padding: 20px;
+}
+
+/*Single bLOG Post*/
+/*.blog-banner{
+	min-height: 520px;
+	max-height: 520px;
+	background-image: url('../../images/uploads/liv3.jpg');
+	background-color: #aaa;
+}*/
+
+.category{
+	margin: 0px;
+}
+
+.single-blog{
+	margin-top: 70px;
+}
+
+.side-title{
+	margin-bottom: 0px;
+}
+
+.blog-title{
+	background-color: #34495e;
+	min-height: 150px;
+	/*margin-top: 480px;*/
+	padding: 15px 10px 30px 30px;
+	color: #ffffff;
+	box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
+}
+.sm-banner-title{
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+
+.sm-banner-comment{
+	margin-top: 25px;
+	margin-right: 25px;
+	text-align: center;
+}
+
+.comment-icon{
+	font-size: 45px;
+}
+
+/*.container-fluid{
+	padding: 0px; 
+}
+*/
+/*#myCarousel{
+
+}*/
+
+.bg-img-1{
+	min-height: 540px;
+	max-height: 540px;
+	background-position: center;
+	background-image: url('../../images/app/liv3.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.home-header{
+	background-color: #34495e;
+	min-height: 180px;
+	max-height: 180px;
+	margin-top: 480px;
+	padding: 15px 10px 30px 30px;
+	color: #ffffff;
+	box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*Profile*/
+.profile{
+	border-left: solid;
+	border-left-color: #9b59b6;
+	border-width: 2px;
+	padding-left: 25px;
+}
