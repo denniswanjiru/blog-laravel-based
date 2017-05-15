@@ -24,7 +24,7 @@
 
       @if(Auth::check())
         <li>
-           <a href=""><img class="avatar-small pull-left" src="/images/uploads/avatars/{{ Auth::user()->avatar }}"></a>
+          <img class="avatar-small img-circle" src="/images/uploads/avatars/{{ Auth::user()->avatar }}">
         </li>
         <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>

@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-9">
 			<div class="col-md-4 col-md-offset-1">
-				<img class="profile-avatar pull-right img-responsive" src="images/uploads/avatars/{{ Auth::user()->avatar }}" >
+				<img class="profile-avatar pull-right img-responsive img-circle" src="images/uploads/avatars/{{ Auth::user()->avatar }}" >
 				<h3 class="pull-right"> {{ Auth::user()->name }}</h3>
 			</div>
 			

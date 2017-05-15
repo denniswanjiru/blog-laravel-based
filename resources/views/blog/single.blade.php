@@ -82,7 +82,7 @@
 			@foreach($post->comments as $comment)
 			<div class="segment">
 				<div class="author-info">
-					<div class="avatar img-responsive">
+					<div class="avatar img-responsive img-circle">
 						<img src="" alt="">
 					</div>
 					<div class="author-name">
@@ -109,7 +109,7 @@
 			<div class="row about-author text-center thumbnail">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
-						<img class="author-avatar" src="{{ asset('images/uploads/avatars/'. $post->user->avatar) }}">
+						<img class="author-avatar img-circle" src="{{ asset('images/uploads/avatars/'. $post->user->avatar) }}">
 						<h4><b>{{ $post->user->name }}</b></h4>
 					</div>					
 				</div>

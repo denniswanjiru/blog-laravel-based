@@ -2,11 +2,14 @@
 
 	@section('title', 'Edit Post')
 	@section('style')
-		<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+		{{-- <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script> --}}
+		<script src="{{ URL::to('tinymce/js/tinymce/jquery.tinymce.min.js') }}"></script>
+		<script src="{{ URL::to('tinymce/js/tinymce/tinymce.min.js') }}"></script>
+
 		<script type="text/javascript">
 			tinymce.init({
 				selector: 'textarea',
-				 plugins: "link advlist",
+				plugins: "link advlist",
 			});
 		</script>
 	@stop
