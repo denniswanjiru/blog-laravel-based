@@ -14,7 +14,7 @@
 
 			<h2 class="sm-banner-title">{{ $post->title }}</h2>
 			<p class="comment-time">
-				{{ date('M j, H:i', strtotime($post->created_at ))}} / 
+				{{ date('M j, H:i', strtotime($post->created_at ))}} /
 
 				@if($post->comments()->count() == 0)
 					be the first to comment
@@ -25,10 +25,10 @@
 				@endif
 			</p>
 
-			<img src="{{ asset('images/uploads/'.$post->image) }}" alt="" width="800" height="400" class="sm-bottom-spacer img-responsive">
+			<img src="{{ asset('images/uploads/posts'.$post->image) }}" alt="" width="800" height="400" class="sm-bottom-spacer img-responsive">
 
 			<p>{!! $post->body !!}</p>
-			
+
 			{{-- End of the Single Post Details --}}
 			<hr>
 			{{-- Comment Form --}}
@@ -60,16 +60,16 @@
 						<div class="form-group">
 							<label for="email">Comment</label>
 							<textarea name="comment" id="textarea" class="form-control" rows="8" required="required" maxlength="2000"></textarea>
-						</div>					
-						
+						</div>
+
 						<button type="submit" class="btn btn-purple-purple">ADD COMMENT</button>
-					</div>					
-				</div>				
+					</div>
+				</div>
 			</form>
 
 			{{-- End of Comment Form --}}
 			<hr>
-			
+
 			@if($post->comments()->count() == 0)
 				<legend>Be the first to comment</legend>
 			@elseif($post->comments()->count() == 1)
@@ -90,14 +90,14 @@
 						<div class="comment-time">
 							<p>{{ date('F n, Y - g:ia', strtotime($comment->created_at)) }}</p>
 						</div>
-					</div>	
+					</div>
 				</div>
 
 				<div class="comment-content">
 					<p>{{ $comment->comment }}</p>
 				</div>
-			</div>		
-			<hr>		
+			</div>
+			<hr>
 			@endforeach
 
 		</div>
@@ -111,12 +111,12 @@
 					<div class="col-md-10 col-md-offset-1">
 						<img class="author-avatar img-circle" src="{{ asset('images/uploads/avatars/'. $post->user->avatar) }}">
 						<h4><b>{{ $post->user->name }}</b></h4>
-					</div>					
+					</div>
 				</div>
 				<div class="caption">
 					<p>{{ $post->user->description }}</p>
 					<button class="btn btn-purple-purple">VIEW ALL POSTS</button>
-				</div>				
+				</div>
 			</div>
 			{{-- End of Author info --}}
 
@@ -128,7 +128,7 @@
 					<h4 class="side-title">{{ $post->title }}</h4>
 					<p class="comment-time">{{ date('F n', strtotime($post->created_at)) }}</p>
 				@endforeach
-			</div>				
+			</div>
 			{{-- End of Latest Posts --}}
 			<hr>
 			{{-- Newsletter --}}
@@ -137,19 +137,19 @@
 				<p>Stay ahead of the game. Subscribe to our FREE newsletter now!</p>
 
 				<form action="" method="POST" role="form" style="margin-top: 20px;">
-				
+
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="Enter Your Email" required="">
 					</div>
 
 					<button type="submit" class="btn btn-purple">SUBSCRIBE</button>
 				</form>
-				
-			</div>	
+
+			</div>
 
 			{{-- End of Newsletter --}}
 		</div>
-	</div>	
+	</div>
 </div>
 
 @include('partials._footer')

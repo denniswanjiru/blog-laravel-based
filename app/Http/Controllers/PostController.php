@@ -63,8 +63,8 @@ class PostController extends Controller
         //store in db
         $user = auth()->user();
         $user_id = $user->id;
-        $post = new Post; 
-       
+        $post = new Post;
+
 
         $post->title = $request->title;
         $post->slug = $request->slug;
@@ -76,7 +76,7 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = time().".".$image->getClientOriginalExtension();
-            $location = public_path('images/uploads/'.$filename);
+            $location = public_path('images/uploads/posts'.$filename);
             Image::make($image)->resize(800, 400)->save($location);
 
             $post->image = $filename;
@@ -85,7 +85,7 @@ class PostController extends Controller
         $post->save();
         $post->tags()->sync($request->tags, false);
 
-        //success sessions 
+        //success sessions
         Session::flash('success', 'Your Blog was Succesfully Posted!');
 
         //redirect to show page
@@ -118,7 +118,7 @@ class PostController extends Controller
         $user_id = $user->id;
         $post = Post::find($id);
 
-        $categories = Category::all();       
+        $categories = Category::all();
 
         $tags = Tag::all();
         // $tags2 = array();
@@ -159,7 +159,7 @@ class PostController extends Controller
         $post->save();
         $post->tags()->sync($request->tags);
 
-        //success sessions 
+        //success sessions
         Session::flash('success', 'Your Blog was Succesfully Updated!');
 
         //redirect to show page
