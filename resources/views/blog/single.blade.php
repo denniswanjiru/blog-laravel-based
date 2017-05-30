@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 
 @section('title', "$post->title")
 
@@ -30,6 +30,37 @@
 			<p>{!! $post->body !!}</p>
 
 			{{-- End of the Single Post Details --}}
+			<hr>
+
+			@if($post->comments()->count() == 0)
+				<legend>Be the first to comment</legend>
+			@elseif($post->comments()->count() == 1)
+				<legend>{{ $post->comments()->count() }}</small> <small>Comment </legend>
+			@else
+				<legend>{{ $post->comments()->count() }} Comments </legend>
+			@endif
+
+			{{-- Comments Section --}}
+			@foreach($post->comments as $comment)
+			<div class="segment">
+				<div class="author-info">
+					<div class="avatar img-responsive img-circle">
+						<img src="" alt="">
+					</div>
+					<div class="author-name">
+						<h4 class="text-capitalize">{{ $comment->name }}</h4>
+						<div class="comment-time">
+							<p>{{ date('F n, Y - g:ia', strtotime($comment->created_at)) }}</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="comment-content">
+					<p>{{ $comment->comment }}</p>
+				</div>
+			</div>
+			@endforeach
+
 			<hr>
 			{{-- Comment Form --}}
 
@@ -68,63 +99,31 @@
 			</form>
 
 			{{-- End of Comment Form --}}
-			<hr>
-
-			@if($post->comments()->count() == 0)
-				<legend>Be the first to comment</legend>
-			@elseif($post->comments()->count() == 1)
-				<legend>{{ $post->comments()->count() }}</small> <small>Comment </legend>
-			@else
-				<legend>{{ $post->comments()->count() }} Comments </legend>
-			@endif
-
-			{{-- Comments Section --}}
-			@foreach($post->comments as $comment)
-			<div class="segment">
-				<div class="author-info">
-					<div class="avatar img-responsive img-circle">
-						<img src="" alt="">
-					</div>
-					<div class="author-name">
-						<h4 class="text-capitalize">{{ $comment->name }}</h4>
-						<div class="comment-time">
-							<p>{{ date('F n, Y - g:ia', strtotime($comment->created_at)) }}</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="comment-content">
-					<p>{{ $comment->comment }}</p>
-				</div>
-			</div>
-			<hr>
-			@endforeach
-
 		</div>
 		{{-- End of Comment Section --}}
 
 		{{-- Sidebar --}}
 		<div class="col-md-3 col-md-offset-1">
 			{{-- Author Info --}}
-			<div class="row about-author text-center thumbnail">
+			{{-- <div class="row about-author text-center thumbnail">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
-						<img class="author-avatar img-circle" src="{{ asset('images/uploads/avatars/'. $post->user->avatar) }}">
+						<img class="author-avatar img-circle" src="{{ asset('images/uploads/avatars/'. $post->author->avatar) }}">
 						<h4><b>{{ $post->user->name }}</b></h4>
 					</div>
 				</div>
 				<div class="caption">
-					<p>{{ $post->user->description }}</p>
+					<p>{{ $post->admin_id }}</p>
 					<button class="btn btn-purple-purple">VIEW ALL POSTS</button>
 				</div>
-			</div>
+			</div>  --}}
 			{{-- End of Author info --}}
 
 			{{-- Latest Posts Sidebar --}}
 			<div class="row">
 				<h3>Latest Posts</h3>
 				@foreach($posts as $post)
-					<img src="{{ asset('images/uploads/'.$post->image) }}" class="sm-top-spacer img-responsive">
+					<a href="{{ route('blog.single', [$post->slug]) }}"><img src="{{ asset('images/uploads/posts'.$post->image) }}" class="sm-top-spacer img-responsive"></a>
 					<h4 class="side-title">{{ $post->title }}</h4>
 					<p class="comment-time">{{ date('F n', strtotime($post->created_at)) }}</p>
 				@endforeach

@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.admin')
 
 @section('title', ' Edit Category')
 
@@ -10,13 +10,13 @@
 			{{ method_field('PUT') }}
 
 			<legend>Edit Category</legend>
-		
+
 			<div class="form-group">
 				<label for="name">Name</label>
 				<input type="text" name="name" class="form-control" value="{{ $category->name }}">
-			</div>		
-			
-		
+			</div>
+
+
 			<button type="submit" class="btn btn-success">Update</button>
 			<a href="{{ route('categories.show', [$category->id]) }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</form>

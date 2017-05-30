@@ -9,7 +9,7 @@ use Session;
 class CategoryController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
     /**
      * Display a listing of the resource.
@@ -44,7 +44,7 @@ class CategoryController extends Controller
         //flsh session
         Session::flash('success', 'Your new category has been successfully created!');
 
-        //redirect to categories.index 
+        //redirect to categories.index
         return redirect()->route('categories.index');
     }
 
@@ -95,7 +95,7 @@ class CategoryController extends Controller
         //flsh session
         Session::flash('success', 'Your new category has been successfully Eupdated!');
 
-        //redirect to categories.index 
+        //redirect to categories.index
         return redirect()->route('categories.show', $category->id);
     }
 
@@ -110,7 +110,7 @@ class CategoryController extends Controller
        $category = Category::find($id);
        $category->posts();
 
-       $category->delete(); 
+       $category->delete();
 
        Session::flash('success', 'Category was successfully deleted!');
 

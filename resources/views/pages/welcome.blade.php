@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 
 @section('title', 'Home')
 
@@ -18,57 +18,47 @@
 		<h2 style="margin-left: 21px;">Popular Posts</h2>
 	</div>
 	<div class="row">
-		<div class="col-md-4 text-center popular-posts">
-			<img class="popular-post-img img-responsive" src="" alt="">
-			<h3><b>Stay ahead of the game. Subscribe!</b></h3>
-			<p class="comment-time">7 commente | 5632 views</p>
-		</div>
-
-		<div class="col-md-4 text-center popular-posts">
-			<img class="popular-post-img img-responsive" src="" alt="">
-			<h3><b>Stay ahead of the game. Subscribe!</b></h3>
-			<p class="comment-time">7 commente | 5632 views</p>
-		</div>
-
-		<div class="col-md-4 text-center popular-posts">
-			<img class="popular-post-img img-responsive" src="" alt="">
-			<h3><b>Stay ahead of the game. Subscribe!</b></h3>
-			<p class="comment-time">7 commente | 5632 views</p>
-		</div>
+		@foreach ($populars as $popular)
+			<div class="col-md-4 text-center popular-posts">
+				<a href="{{ route('blog.single', [$popular->slug]) }}"><img class="popular-post-img img-responsive" src="{{ asset('/images/uploads/posts'.$popular->image) }}" alt=""></a>
+				<h3><b>{{ $popular->title }}</b></h3>
+				<p class="comment-time">{{ $popular->comments()->count() }} comments | 5632 views</p>
+			</div>
+		@endforeach
 	</div>
 </div>
 
 <div class="container-fluid container-spacer find-out">
-	<div class="col-md-6 col-md-offset-3 text-center">	
+	<div class="col-md-6 col-md-offset-3 text-center">
 		<h4><b>You will love Beta Healthcare</b></h4>
 		<p class="sm-bottom-spacer">Vlog is a carefully crafted WordPress theme with a focus on your video content. It will suit the needs of any personal video blog, all the way to complex magazine websites. Whether you need a website for video blogging, video tutorials and lessons or any sort of viral video sharing, Vlog is the perfect choice. YouTube, Vimeo, Dailymotion and other common video content never looked better!</p>
 		<a href="#" class="btn btn-purple-purple">FIND OUT MORE</a>
-	</div>	
+	</div>
 </div>
 
 <div class="container container-spacer">
-	<div class="row">		
+	<div class="row">
 		<div class="col-md-8 col-md-offset-1">
 			<h4><b>LATEST POSTS</b></h4>
 			@foreach($posts as $post)
 				<div class="spacer-bottom clearfix">
-					<a href="{{ route('blog.single', [$post->slug]) }}"><img src="{{ asset('images/uploads/' . $post->image ) }}" alt="" class="popular-post-img img-responsive" style="float: left; margin-right: 20px; margin-bottom: 20px;"></a>
+					<a href="{{ route('blog.single', [$post->slug]) }}"><img src="{{ asset('images/uploads/posts' . $post->image ) }}" alt="" class="popular-post-img img-responsive" style="float: left; margin-right: 20px; margin-bottom: 20px;"></a>
 
 					@if(count($post->category) > 0)
 						<p class="text-uppercase category">{{ $post->category->name }}</p>
 					@endif
 					<h4><b>{{ $post->title }}</b></h4>
 					<p class="comment-time" style="font-size: 13px;">{{ date('M j, Y H:i', strtotime($post->created_at ))}}</p>
-					
+
 					<p>{{ substr(strip_tags($post->body), 0, 270)}} {{ strlen(strip_tags($post->body)) > 270 ? "..." : "" }}</p>
 
 				</div>
-				
+
 			@endforeach
-		</div>	
+		</div>
 
 		<div class="col-md-3">
-			<div class="row thumbnail cats">	
+			<div class="row thumbnail cats">
 				<h4><b>CATEGORIES</b></h4>
 				@foreach($categories as $category)
 					<h5 class="badge cat-info">{{ $category->posts()->count() }}</h5>
@@ -81,22 +71,21 @@
 				<p>Stay ahead of the game. Subscribe to our FREE newsletter now!</p>
 
 				<form action="" method="POST" role="form" style="margin-top: 20px;">
-				
+
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="Enter Your Email" required="">
 					</div>
-				
-					
-				
+
+
+
 					<button type="submit" class="btn btn-purple">SUBSCRIBE</button>
 				</form>
-				
+
 			</div>
-		</div>	
+		</div>
 	</div>
 </div>
 
 @include('partials._footer')
 
 @stop
-

@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.admin')
 
 @section('title', 'View Tag')
 
@@ -22,10 +22,10 @@
 		<div class="col-md-2">
 			<form action="{{ route('tags.destroy', $tag->id) }}" method="POST" role="form">
 				{!! csrf_field() !!}
-				{{ method_field('DELETE') }}	
+				{{ method_field('DELETE') }}
 
 				<button type="submit" class="btn btn-danger pull-left" style="margin-top: 20px;"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
-			</form>			
+			</form>
 		</div>
 
 	</div>
@@ -53,7 +53,7 @@
 							<td>
 								@foreach($post->tags as $tag)
 									<span class="label label-default">{{ $tag->name }}</span>
-								@endforeach								
+								@endforeach
 							</td>
 							<td>
 								<a href="{{ route('posts.show', $post->id) }}" class="btn btn-default btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</a>

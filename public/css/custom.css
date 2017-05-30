@@ -1,6 +1,6 @@
 .active{
 	border-bottom: solid;
-	color: #0074E4; 
+	color: #0074E4;
 }
 
 .navbar .nav>li>a{
@@ -26,7 +26,7 @@
 .icon-bar{
 	background-color: #9b59b6;
 
-} 
+}
 .menu-prl{
 	padding-left: 110px;
 	padding-right: 80px;
@@ -45,6 +45,16 @@
 	color: white;
 }
 
+.social-icons{
+	background-color: black;
+	letter-spacing: 1em;
+	padding: 20px;
+}
+
+.icon-color{
+	color: #fff;
+}
+
 .copyright{
 	background-color: #273747;
 	font-size: 14px;
@@ -52,7 +62,6 @@
 
 .copyright-info{
 	margin: 20px;
-
 }
 
 .footer-img{
@@ -70,7 +79,7 @@
 	margin-left: 1px;
 }
 .footer-post-title{
-	font-weight: bold;	
+	font-weight: bold;
 }
 
 .container-spacer{
@@ -91,7 +100,7 @@
 .pt-spacer{
 	padding: 20px;
 }
- 
+
  .sm-spacer{
 	margin: 20px;
 }
@@ -194,7 +203,7 @@
 /*buttons*/
 .btn-purple{
 	background-color: #9b59b6;
-	color: #fff;	
+	color: #fff;
 }
 
 .btn-purple:hover{
@@ -206,7 +215,7 @@
 
 .btn-purple-purple{
 	background-color: #9b59b6;
-	color: #fff;	
+	color: #fff;
 }
 
 .btn-purple-purple:hover{
@@ -227,14 +236,14 @@
 .popular-posts{
 	padding-top: 20px;
 	min-height: 330px;
-	max-height: 330px; 
+	max-height: 330px;
 }
 
 .find-out{
 	padding-top: 85px;
 	background-color: #f3f3f3;
 	min-height: 350px;
-	
+
 }
 
 .category{
@@ -252,7 +261,7 @@ div.cats{
 }
 
 .badge{
-	background-color: #9b59b6; 
+	background-color: #9b59b6;
 }
 
 .newsletter{
@@ -306,7 +315,7 @@ div.cats{
 }
 
 /*.container-fluid{
-	padding: 0px; 
+	padding: 0px;
 }
 */
 /*#myCarousel{

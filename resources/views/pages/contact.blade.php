@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 
 @section('title', ' Contact')
 
@@ -13,19 +13,19 @@
 </div>
 
 <hr>
-	
+
 <div class="row">
 	<div class="container">
 		<div class="col-md-6 col-md-offset-3 pt-spacer blue-form">
-			<form action="{{ route('layouts.contact') }}" method="POST" role="form">
+			<form action="{{ route('pages.contact') }}" method="POST" role="form">
 			{{ csrf_field() }}
 
 				<legend>Contact Us</legend>
-			
+
 				<div class="form-group">
 					<label for="email">Email</label>
 					<input name="email" type="text" class="form-control" id="" placeholder="Enter your Email" required="required">
-				</div>	
+				</div>
 
 				<div class="form-group">
 					<label for="subject">Subject</label>
@@ -35,8 +35,8 @@
 				<div class="form-group">
 					<label for="message">Message</label>
 					<textarea name="message" class="form-control" rows="6" required="required"></textarea>
-				</div>					
-			
+				</div>
+
 				<button type="submit" class="btn btn-primary">Submit</button>
 			</form>
 		</div>

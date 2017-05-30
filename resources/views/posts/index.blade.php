@@ -1,5 +1,5 @@
-@extends('admin')
-	
+@extends('layouts.admin')
+
 @section('title', 'All Posts')
 
 @section('counter')
@@ -41,20 +41,20 @@
 
 								<button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
 							</form>
-						</a>	
+						</a>
 					</td>
-						
-					
+
+
 				</tr>
 				@endforeach
 			</tbody>
 		</table>
 	</div>
 
-	<div class="text-center">	
+	<div class="text-center">
 		{!! $posts->links() !!}
 	</div>
-</div>      
+</div>
 
 @endif
 

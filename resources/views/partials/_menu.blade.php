@@ -16,21 +16,28 @@
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('/') ? "active" : "" }}"><a href="{{ url('/') }}">Home</a></li>
         <li class="{{ Request::is('about') ? "active" : "" }}"><a href="#">About</a></li>
-        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{ url('contact') }}">Contact</a></li>
+        <li class="{{ Request::is('contact') ? "active" : "" }}"><a href="{{ route('pages.contact') }}">Contact</a></li>
       </ul>
 
       {{-- Pulled Right --}}
       <ul class="nav navbar-nav navbar-right" style="padding-right: 80px;">
 
-      @if(Auth::check())
+      @if(Auth::guest())
+        <li><a href="{{ route('login') }}">Login</a></li>
+        <li><a href="{{ route('register') }}">Register</a></li>
+      @else
         <li>
-          <img class="avatar-small img-circle" src="/images/uploads/avatars/{{ Auth::user()->avatar }}">
+          <img class="avatar-small img-circle" src="{{ asset('images/uploads/avatars/'.Auth::user()->avatar) }}">
         </li>
         <li class="dropdown">
          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('admin.profile') }}">Profile</a></li>
-            <li><a href="{{ route('posts.index') }}">Dashboard</a></li>
+            @if (Auth::guard('admin')->check())
+              <li><a href="{{ route('admin.profile') }}">Profile</a></li>
+              <li><a href="{{ route('posts.index') }}">Dashboard</a></li>
+            @else
+              <li><a href="{{ route('user.profile') }}">Profile</a></li>
+            @endif
             <li role="separator" class="divider"></li>
             <li><a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
@@ -41,15 +48,7 @@
             </li>
           </ul>
         </li>
-        
-        @else
-          
-          <li><a href="#"><i class="fa fa-size fa-facebook" aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-size fa-twitter " aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-size fa-instagram " aria-hidden="true"></i></a></li>
-          <li><a href="#"><i class="fa fa-size fa-pinterest " aria-hidden="true"></i></a></li>
-
-        @endif
+      @endif
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

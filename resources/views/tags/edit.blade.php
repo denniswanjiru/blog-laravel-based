@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.admin')
 
 @section('title', ' Edit Tag')
 
@@ -10,13 +10,13 @@
 			{{ method_field('PUT') }}
 
 			<legend>Edit Tag</legend>
-		
+
 			<div class="form-group">
 				<label for="name">Name</label>
 				<input type="text" name="name" class="form-control" value="{{ $tag->name }}">
-			</div>		
-			
-		
+			</div>
+
+
 			<button type="submit" class="btn btn-success">Update</button>
 			<a href="{{ route('tags.show', [$tag->id]) }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Cancel</a>
 		</form>

@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.admin')
 
 	@section('title', 'Edit Post')
 	@section('style')
@@ -18,19 +18,19 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3 pt-spacer" style="background-color: #00BFFF; margin-top: 20px;"> 
+				<div class="col-md-6 col-md-offset-3 pt-spacer" style="background-color: #00BFFF; margin-top: 20px;">
 
-				   <form action="{{ action('PostController@update', $post->id) }}" method="POST" role="form">				   	
-						
+				   <form action="{{ action('PostController@update', $post->id) }}" method="POST" role="form">
+
 						{{ csrf_field() }}
 						{{ method_field('PUT') }}
 
 					   	<legend>Edit Post</legend>
-					   
+
 					   	<div class="form-group">
 					   		<label for="title">Title</label>
 					   		<input type="text" name="title" class="form-control input-lg" value="{{ $post->title }}" required="" maxlength="255">
-					   	</div>	
+					   	</div>
 
 					   	<div class="form-group">
 					   		<label for="slug">Slug</label>
@@ -44,7 +44,7 @@
 					   	   			<option value="{{ $category->id }}">{{ $category->name }}</option>
 					   	   		@endforeach
 					   	   	</select>
-					   	</div> 
+					   	</div>
 
 					   	<div class="form-group">
 					   		<label for="tags">Tag</label>
@@ -58,7 +58,7 @@
 					   	<div class="form-group">
 							<label for="body">Body</label>
 							<textarea name="body" id="textarea" class="form-control" rows="8">{{ $post->body }}</textarea>
-						</div>	 	
+						</div>
 
 					   	<button type="submit" class="btn btn-success">Update</button>
 
@@ -70,13 +70,13 @@
 
 				 </div>
 			</div>
-		</div>  
+		</div>
 
 	@stop
 
 	@section('scripts')
 		<script>
 			$('.select2-multi').select2();
-			// 
+			//
 		</script>
 	@stop

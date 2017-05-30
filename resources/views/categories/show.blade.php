@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.admin')
 
 @section('title', 'View Category')
 
@@ -27,27 +27,27 @@
 			</div>
 
 			<div class="col-md-4" style="margin-top: 20px;">
-				<div class="col-md-6">	
+				<div class="col-md-6">
 					<a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary pull-right"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
 				</div>
 
-				<div class="col-md-6">	
-					<form action="{{ route('categories.destroy', $category->id) }}" method="POST" role="form">	
+				<div class="col-md-6">
+					<form action="{{ route('categories.destroy', $category->id) }}" method="POST" role="form">
 
 					{{ csrf_field() }}\
-					{{ method_field('DELETE') }}	
-						
-					
+					{{ method_field('DELETE') }}
+
+
 					<button type="submit" class="btn btn-danger pull-left"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
 					</form>
 				</div>
-			</div>			
+			</div>
 		</div>
-		
+
 		<div class="row">
 			@if($category->posts()->count() > 0)
 
-			<div class="col-md-12">	
+			<div class="col-md-12">
 				<table class="table">
 					<thead>
 						<tr>

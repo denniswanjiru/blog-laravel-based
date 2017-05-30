@@ -12,7 +12,7 @@
 	<div class="row sm-spacer">
 		<div class="col-md-9">
 			<div class="col-md-4 col-md-offset-1">
-				<img class="profile-avatar pull-right img-responsive img-circle" src="images/uploads/avatars/{{ Auth::user()->avatar }}">
+				<img class="profile-avatar pull-right img-responsive img-circle" src="{{ asset('images/uploads/avatars/'.Auth::user()->avatar) }}">
 				<h3 class="pull-right"> {{ Auth::user()->name }}</h3>
 			</div>
 
@@ -32,7 +32,7 @@
 					<h4 class="modal-title">Update Profile</h4>
 				</div>
 				<div class="modal-body">
-					{!! Form::model(Auth::user(), ['route' => 'admin.profile', 'files' => true ]) !!}
+					{!! Form::model(Auth::user(), ['route' => 'user.profile', 'files' => true ]) !!}
 
 						<div class="form-group">
 							{{ Form::file('avatar',  null, []) }}

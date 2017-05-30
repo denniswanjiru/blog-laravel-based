@@ -15,7 +15,7 @@ class PostController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('auth:admin');
     }
     /**
      * Display a listing of the resource.
@@ -62,14 +62,14 @@ class PostController extends Controller
 
         //store in db
         $user = auth()->user();
-        $user_id = $user->id;
+        $admin_id = $user->id;
         $post = new Post;
 
 
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
-        $post->user_id = $user_id;
+        $post->admin_id = $admin_id;
         $post->body = $request->body;
 
         //Handles Image Upload
@@ -81,7 +81,7 @@ class PostController extends Controller
 
             $post->image = $filename;
         }
-        
+
         $post->save();
         $post->tags()->sync($request->tags, false);
 

@@ -26,22 +26,23 @@ Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getS
 // Posts
 Route::resource('posts', 'PostController');
 
-//Admins
-Route::get('profile', [
-	'uses' => 'AdminController@getProfile',
-	'as' => 'admin.profile'
-	]);
+// User Profile
+Route::get('user/profile', 'ProfileController@getProfile')->name('user.profile');
+Route::post('user/profile', 'ProfileController@updateAvatar')->name('user.profile');
 
-Route::post('profile', [
-	'uses' => 'AdminController@updateAvatar',
-	'as' => 'admin.profile'
-	]);
+// Admin Routes
+Route::group(['prefix' => 'admin'], function(){
+  Route::get('/login', 'Auth\AdminLoginController@getLogin')->name('admin.login');
+  Route::post('/login', 'Auth\AdminLoginController@postLogin')->name('admin.login');
+  Route::get('admin/profile', 'AdminController@profile')->name('admin.profile');
+});
+
+Route::get('/dashboard', 'PostController@index')->name('admin.dashboard');
 
 //Authentication
 Auth::routes();
 
-//Layouts
-Route::get('/', ['as' => '/', 'uses' => 'LayoutController@getIndex']);
-Route::get('contact', ['as' => 'layouts.contact', 'uses' => 'LayoutController@getContact']);
-Route::post('contact', ['as' => 'layouts.contact', 'uses' => 'LayoutController@postContact']);
-
+//Pages
+Route::get('/', ['as' => '/', 'uses' => 'PagesController@getIndex']);
+Route::get('contact', ['as' => 'pages.contact', 'uses' => 'PagesController@getContact']);
+Route::post('contact', ['as' => 'pages.contact', 'uses' => 'PagesController@postContact']);

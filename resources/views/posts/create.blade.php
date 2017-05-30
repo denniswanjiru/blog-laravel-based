@@ -1,6 +1,6 @@
-@extends('admin')
+@extends('layouts.admin')
 
-	@section('title', 'Compose New Post') 
+	@section('title', 'Compose New Post')
 
 	@section('style')
 		{{-- <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script> --}}
@@ -18,18 +18,18 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3 pt-spacer blue-form"> 
+				<div class="col-md-6 col-md-offset-3 pt-spacer blue-form">
 
 				   	<form action="{{ route('posts.store') }}" method="POST" role="form" enctype="multipart/form-data" data-parsley-validate="">
-						
+
 						{{ csrf_field() }}
 
 					   	<legend>Compose New Post</legend>
-					   
+
 					   	<div class="form-group text-capitalize">
 					   		<label for="title">Title</label>
 					   		<input type="text" name="title" class="form-control input-lg" required="" maxlength="255">
-					   	</div>	
+					   	</div>
 
 					   	<div class="form-group">
 					   		<label for="slug">Slug</label>
@@ -40,7 +40,7 @@
 					   		<label for="image">Image</label>
 					   		<input type="file" name="image">
 					   	</div>
-						
+
 						<div class="form-group">
 							<label for="category_id">Category</label>
 							<select name="category_id" id="input" class="form-control" required="required">
@@ -48,7 +48,7 @@
 						   			<option value="{{ $category->id }}">{{ $category->name }}</option>
 						   		@endforeach
 						   	</select>
-						</div>   
+						</div>
 
 						<div class="form-group">
 							<label for="tags">Tag</label>
@@ -57,19 +57,19 @@
 						   			<option value="{{ $tag->id }}">{{ $tag->name }}</option>
 						   		@endforeach
 						   	</select>
-						</div> 	
+						</div>
 
 					   	<div class="form-group">
 							<label for="body">Body</label>
 							<textarea name="body" class="form-control" rows="8"></textarea>
-						</div>	
+						</div>
 
 					   	<button type="submit" class="btn btn-success">Compose Post</button>
 				   	</form>
 
 				 </div>
 			</div>
-		</div>  
+		</div>
 
 	@stop
 

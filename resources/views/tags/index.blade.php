@@ -1,4 +1,4 @@
-@extends('admin')
+@extends('layouts.admin')
 
 @section('title', 'Tags')
 
@@ -38,16 +38,16 @@
 					<form action="" method="POST" role="form">
 						{{ csrf_field() }}
 						<legend>New Tag</legend>
-					
+
 						<div class="form-group">
 							<label for="name">Name</label>
 							<input type="text" name="name" class="form-control">
-						</div>					
-					
+						</div>
+
 						<button type="submit" class="btn btn-primary">Create New Tag</button>
 					</form>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
