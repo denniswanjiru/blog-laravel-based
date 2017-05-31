@@ -9,6 +9,14 @@
 			</p>
 			<br>
 			<a href="#" class="btn btn-purple">FIND OUT MORE</a>
+
+			<div class="txt-clr social-icons">			
+				<a href="#"><i class="icon-color fa fa-2x fa-facebook" aria-hidden="true"></i></a>
+				<a href="#"><i class="icon-color fa fa-2x fa-twitter " aria-hidden="true"></i></a>
+				<a href="#"><i class="icon-color fa fa-2x fa-instagram " aria-hidden="true"></i></a>
+				<a href="#"><i class="icon-color fa fa-2x fa-pinterest " aria-hidden="true"></i></a>
+				<a href="#"><i class="icon-color fa fa-2x fa-github" aria-hidden="true"></i></a>			
+			</div>
 		</div>
 
 		<div class="col-md-4 footer-popular">
@@ -41,9 +49,9 @@
 			<h4><strong>MOST DISCUSSED</strong></h4>
 			@foreach ($populars as $popular)
 				<div class="row footer-popular-info">
-						<a href="{{ route('blog.single', [$popular->slug]) }}"><img class="footer-img img-responsive" src="{{ asset('/images/uploads/posts'.$popular->image) }}"></a>
-						<h5 class="footer-post-title">{{ $popular->title }}</h5>
-						<p class="comment-time">{{ $popular->comments->count() }} comments</p>
+					<a href="{{ route('blog.single', [$popular->slug]) }}"><img class="footer-img img-responsive" src="{{ asset('/images/uploads/posts'.$popular->image) }}"></a>
+					<h5 class="footer-post-title">{{ $popular->title }}</h5>
+					<p class="comment-time">{{ $popular->comments->count() }} comments</p>
 				</div>
 				<br>
 			@endforeach
@@ -53,14 +61,7 @@
 </div>
 
 <div class="row copyright text-center">
-	<div class="txt-clr social-icons">
-			<a href="#"><i class="icon-color fa fa-2x fa-facebook" aria-hidden="true"></i></a>
-			<a href="#"><i class="icon-color fa fa-2x fa-twitter " aria-hidden="true"></i></a>
-			<a href="#"><i class="icon-color fa fa-2x fa-instagram " aria-hidden="true"></i></a>
-			<a href="#"><i class="icon-color fa fa-2x fa-pinterest " aria-hidden="true"></i></a>
-			<a href="#"><i class="icon-color fa fa-2x fa-github" aria-hidden="true"></i></a>
-		</ul>
-	</div>
+	
 </div>
 
 <div class="row copyright  text-center">
