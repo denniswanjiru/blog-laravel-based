@@ -9,8 +9,12 @@ use Session;
 
 class ProfileController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function getProfile(){
-    	return view('user.profile')->withUser(Auth::user());
+    	return view('user.profile');
     }
 
     public function updateAvatar(Request $request){
@@ -25,14 +29,14 @@ class ProfileController extends Controller
     		$avatar = $request->file('avatar');
     		$filename =time(). '.' .$avatar->getClientOriginalExtension();
     		Image::make($avatar)->resize(121, 121)->save(public_path('/images/uploads/avatars/'. $filename));
-
+      }
     		$user->avatar = $filename;
-            $user->description = $request->description;
+        $user->description = $request->description;
 
     		$user->save();
 
     	  Session::flash('success', 'Your profile was successfully updated!');
-        return redirect()->route('user.profile');
-    	}
+        return redirect()->route('user.profile')->withUser($user);
+
     }
 }

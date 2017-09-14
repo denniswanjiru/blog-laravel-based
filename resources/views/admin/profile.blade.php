@@ -32,7 +32,7 @@
 					<h4 class="modal-title">Update Profile</h4>
 				</div>
 				<div class="modal-body">
-					{!! Form::model(Auth::user(), ['route' => 'admin.profile', 'files' => true ]) !!}
+					{!! Form::model($user, ['route' => 'admin.profile', 'files' => true ]) !!}
 
 						<div class="form-group">
 							{{ Form::file('avatar',  null, []) }}

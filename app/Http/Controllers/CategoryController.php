@@ -41,7 +41,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        //flsh session
+        //flash session
         Session::flash('success', 'Your new category has been successfully created!');
 
         //redirect to categories.index

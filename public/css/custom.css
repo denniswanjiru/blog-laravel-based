@@ -7,7 +7,7 @@ ul.nav li.active a {
 }
 
 .navbar .nav>li>a{
-	color: #fff;
+	color: #000;
 	font-weight: 600;
 }
 
@@ -333,7 +333,7 @@ div.cats{
 	min-height: 540px;
 	max-height: 540px;
 	background-position: center;
-	background-image: url('../../images/app/luca.jpg');
+	background-image: url('../../images/app/liv3.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
